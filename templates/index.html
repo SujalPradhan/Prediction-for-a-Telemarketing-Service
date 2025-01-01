@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Data Input for Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 50%;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+        .form-group select, .form-group input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e7f5e7;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Customer Data Input for Prediction</h1>
+
+        <form method="POST">
+            <div class="form-group">
+                <label for="last_contact_date">Last Contact Date:</label>
+                <input type="date" id="last_contact_date" name="last_contact_date" required>
+            </div>
+
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" min="18" max="100" value="30" required>
+            </div>
+
+            <div class="form-group">
+                <label for="job">Job:</label>
+                <select id="job" name="job" required>
+                    <option value="admin.">admin.</option>
+                    <option value="blue-collar">blue-collar</option>
+                    <option value="entrepreneur">entrepreneur</option>
+                    <option value="housemaid">housemaid</option>
+                    <option value="management">management</option>
+                    <option value="retired">retired</option>
+                    <option value="self-employed">self-employed</option>
+                    <option value="services">services</option>
+                    <option value="student">student</option>
+                    <option value="technician">technician</option>
+                    <option value="unemployed">unemployed</option>
+                    <option value="unknown">unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="education">Education:</label>
+                <select id="education" name="education" required>
+                    <option value="primary">Primary</option>
+                    <option value="secondary">Secondary</option>
+                    <option value="tertiary">Tertiary</option>
+                    <option value="unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="marital">Marital Status:</label>
+                <select id="marital" name="marital" required>
+                    <option value="married">Married</option>
+                    <option value="single">Single</option>
+                    <option value="divorced">Divorced</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="default">Has Credit in Default:</label>
+                <select id="default" name="default" required>
+                    <option value="no">No</option>
+                    <option value="yes">Yes</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="balance">Balance:</label>
+                <input type="number" id="balance" name="balance" min="-10000" max="100000" value="0" required>
+            </div>
+
+            <div class="form-group">
+                <label for="housing">Has Housing Loan:</label>
+                <select id="housing" name="housing" required>
+                    <option value="no">No</option>
+                    <option value="yes">Yes</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="loan">Has Personal Loan:</label>
+                <select id="loan" name="loan" required>
+                    <option value="no">No</option>
+                    <option value="yes">Yes</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="contact">Contact Communication Type:</label>
+                <select id="contact" name="contact" required>
+                    <option value="cellular">Cellular</option>
+                    <option value="telephone">Telephone</option>
+                    <option value="unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="duration">Last Contact Duration (in seconds):</label>
+                <input type="number" id="duration" name="duration" min="0" value="10" required>
+            </div>
+
+            <div class="form-group">
+                <label for="campaign">Number of Contacts in this Campaign:</label>
+                <input type="number" id="campaign" name="campaign" min="1" value="1" required>
+            </div>
+
+            <div class="form-group">
+                <label for="pdays">Previous Contact Duration (in days):</label>
+                <input type="number" id="pdays" name="pdays" min="-1" value="-1" required>
+            </div>
+
+            <div class="form-group">
+                <label for="previous">Number of Contacts before this Campaign:</label>
+                <input type="number" id="previous" name="previous" min="0" value="0" required>
+            </div>
+
+            <div class="form-group">
+                <label for="poutcome">Outcome of Previous Marketing Campaign:</label>
+                <select id="poutcome" name="poutcome" required>
+                    <option value="failure">Failure</option>
+                    <option value="success">Success</option>
+                    <option value="nonexistent">Nonexistent</option>
+                    <option value="unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="target">Target Variable:</label>
+                <select id="target" name="target" required>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn">Submit</button>
+            </div>
+        </form>
+
+        {% if prediction_text %}
+        <div class="result">
+            <h3>Prediction Result:</h3>
+            <p>{{ prediction_text }}</p>
+            <h3>User Input Data:</h3>
+            <pre>{{ user_data }}</pre>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
