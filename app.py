@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request
 import pickle
 import pandas as pd
 
@@ -47,15 +47,12 @@ def index():
             'target': target
         }
 
-        input_df = pd.DataFrame(user_data, index=[0])
 
         # Apply preprocessing pipeline (make sure input_df is a DataFrame)
-        processed_data = pipeline.transform(input_df)
 
         # Now pass the processed data to the model for prediction
-        prediction = model.predict(processed_data)
 
-        if prediction[0] == 'yes':
+        if True  == 'yes':
             prediction_text = "The customer is predicted to subscribe to a term deposit."
         else:
             prediction_text = "The customer is predicted not to subscribe to a term deposit."
